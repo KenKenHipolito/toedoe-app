@@ -3,7 +3,7 @@
          <button class="btn btn-sm btn-circle btn-outline-secondary me-1" @click="$event => emit('edit')">
             <iconPencil/>
         </button>
-        <button class="btn btn-sm btn-circle btn-outline-danger" @click="$event => emit('remove')">
+        <button class="btn btn-sm btn-circle btn-outline-danger" @click="$event => emit('removed')">
             <iconTrash/>
         </button>   
     </div>
@@ -14,6 +14,6 @@
 import iconPencil from "../icons/iconPencil.vue";
 import iconTrash from "../icons/iconTrash.vue"; 
 
-const emit = defineEmits(['edit', 'remove'])
+const emit = defineEmits(['edit', 'removed'])
 
 </script>
