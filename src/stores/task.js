@@ -1,6 +1,6 @@
 import { ref, reactive, computed} from 'vue';
 import {defineStore} from "pinia";
-import { allTasks, createTask} from "../http/tasks-api";
+import { allTasks, createTask, updateTask, completeTask, removeTask } from "../http/tasks-api";
 
 const tmp = {
     state: () => ({

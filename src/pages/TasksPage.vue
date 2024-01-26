@@ -7,10 +7,7 @@
                     <NewTasks/>
 
                     <!-- List of uncompleted tasks -->
-                    <Tasks :tasks="uncompletedTasks" 
-                    @updated="handleUpdatedTask"
-                    @completed="handleCompletedTask"
-                    @removed="handleRemoveTask"/>
+                    <Tasks :tasks="uncompletedTasks" />
 
                     <!-- Show Toggle Button -->
                     <div class="text-center my-3" v-show="showToggleCompletedBtn">
@@ -22,9 +19,7 @@
 
                     <!-- List of completed tasks -->
                     <Tasks :tasks="completedTasks" 
-                    :show="completedTasksIsVisible && showCompletedTasks"
-                    @completed="handleCompletedTask"
-                    @removed="handleRemoveTask"/>
+                    :show="completedTasksIsVisible && showCompletedTasks"/>
                 </div>
             </div>
         </div>
@@ -35,16 +30,11 @@
 import { computed, onMounted, ref } from "vue";
 import { storeToRefs } from "pinia";
 import { useTaskStore} from "../stores/task";
-import { allTasks, createTask, updateTask, completeTask, removeTask } from "../http/tasks-api";
 import Tasks from "../components/tasks/Tasks.vue";
 import NewTasks from "../components/tasks/NewTask.vue";
 
 const store = useTaskStore()
 const { completedTasks, uncompletedTasks } = storeToRefs(store)
-
-const { fetchAllTasks, handleAddedTask } = store
-
-const tasks = ref([])
 
 onMounted(async() =>{
     await store.fetchAllTasks()
