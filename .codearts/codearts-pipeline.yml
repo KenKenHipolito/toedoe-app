@@ -1,0 +1,16 @@
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  demo:
+    name: Git pull
+    steps:
+      - name: Deploy
+        uses: CodeArtsDeploy
+        with:
+          jobId: 6d7b50b4e01c482688ea0131e9b9dac3
